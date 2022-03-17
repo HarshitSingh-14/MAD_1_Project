@@ -52,7 +52,6 @@ def sign_up():
         else:
 
             from . import db
-            # Add user to the database
             new_user = User(fullname=fullname, email=email,  password=generate_password_hash(password1, method='sha256'), city=city)
             db.session.add(new_user)
             db.session.commit()

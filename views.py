@@ -98,7 +98,7 @@ def delete_course(record_id):
         flash(Course_name + ' Course removed Successfully -> Do contact us if deleted by mistake. ', category='success')
     except Exception as e:
         print(e)
-        flash('Something went wrong.', category='error')
+         
     return redirect(url_for('views.home'))
 
 
@@ -133,7 +133,7 @@ def edit_course(record_id):
                 return redirect(url_for('views.home'))
     except Exception as e:
         print(e)
-        flash('Something went wrong.', category='error')
+         
 
     return render_template("edit_course_page.html", user=current_user, course=this_course)
 
@@ -159,7 +159,7 @@ def add_log(record_id):
             return redirect(url_for('views.home'))
     except Exception as e:
         print(e)
-        flash('Something went wrong.', category='error')
+         
     return render_template("add_log_page.html", user=current_user, course=this_course, now=now)
 
 
@@ -178,51 +178,13 @@ def view_course(record_id):
         c = con.cursor()
         c.execute('SELECT timestamp, value FROM Log WHERE user_id={} AND course_id={}'.format(current_user.id,
                                                                                                selected_course.id))
-        data = c.fetchall()
-
-        dates = []
-        values = []
-        import matplotlib.pyplot as plt
-        from matplotlib import style
-        style.use('fivethirtyeight')
-        from dateutil import parser
-
-        for row in data:
-            dates.append(parser.parse(row[0]))
-            values.append(row[1])
-
-        fig = plt.figure(figsize=(18, 8))
-        plt.plot_date(dates, values, '-')
-        plt.xlabel('Date and Time')
-        plt.ylabel('Values')
-        plt.tight_layout()
-        plt.savefig('E:\Quantified_Self_App\website\static\Images\graph.png')
-        # plt.show()
-
-        gon = sqlite3.connect('E:\Quantified_Self_App\website\database.db')
-        g = gon.cursor()
-        added_date_time = g.execute('SELECT added_date_time FROM Log WHERE '
-                                    'id=(SELECT max(id) FROM Log WHERE course_id={})'.format(record_id))
-
-        added_date_time = added_date_time.fetchone()
-        added_date_time = ''.join(added_date_time)
-        print(added_date_time)
-        from datetime import datetime
-        last_updated = now - parser.parse(added_date_time)
-        last_updated_str = str(last_updated)
-        hour = last_updated_str[:1]
-        min1 = last_updated_str[2]
-        min2 = last_updated_str[3]
-        minute = min1 + min2
-        sec1 = last_updated_str[5]
-        sec2 = last_updated_str[6]
-        second = sec1 + sec2
-        return render_template("view_course_logs_and_graph.html", user=current_user, course=selected_course,
-                               logs=logs, hour=hour, min=minute, sec=second)
+        
+       
+        return render_template("logs_page.html", )
     except Exception as e:
         print(e)
-        flash('Something went wrong.', category='error')
-        return render_template("view_course_logs_and_graph.html", user=current_user, course=selected_course,
+         
+        return render_template("logs_page.html", user=current_user, course=selected_course,
                                logs=logs)
 
 
@@ -239,7 +201,7 @@ def delete_log(record_id):
         flash('Log Removed Successfully.', category='success')
     except Exception as e:
         print(e)
-        flash('Something went wrong.', category='error')
+         
     return redirect(url_for('views.view_course', record_id=course_id))
 
 
@@ -265,6 +227,6 @@ def edit_log(record_id):
             return redirect(url_for('views.view_course', record_id=this_log.course_id))
     except Exception as e:
         print(e)
-        flash('Something went wrong.', category='error')
+         
 
     return render_template("edit_log_page.html", user=current_user, course=this_course, log=this_log)
