@@ -1,0 +1,160 @@
+{% extends 'base.html' %} {% block title %}Edit Log{% endblock %} {% block
+content %}
+<h1
+  align="left"
+  class="card-header text-white"
+  style="background: -webkit-linear-gradient(bottom, #ffffff, #ffffff)"
+>
+  <span
+    class="typer"
+    id="main"
+    data-words="Hi ,  {{user.fullname }}____ Welcome to the world of Course"
+    data-delay="70"
+    data-deleteDelay="12"
+    style="font-size: 40px"
+  ></span>
+  <span class="cursor" data-owner="main"></span>
+</h1>
+
+<form method="post">
+  <h3 align="center"></h3>
+  <div class="form-group" style="background-color: #ffffff; width: 20rem">
+    <h2 style="padding-left: 30px">Course to comment -> {{course.name}}</h2>
+
+    <div align="center">
+      <br />
+
+      <label for="date">Course Start Date : </label>
+      <input
+        type="datetime-local"
+        class="form-control"
+        id="date"
+        name="date"
+        style="width: 300px; border-radius: 15px; text-align: center"
+        value="{{log.timestamp}}"
+      />
+      <label for="value">Rating: </label>
+      {% if course.course_type=='Databases' %}
+      <select
+        style="width: 300px; text-align: center; border-radius: 15px"
+        id="value"
+        class="form-control"
+        name="value"
+        required
+      >
+        <option value="Worst">
+          Worst, could not relate anything in the course.
+        </option>
+        <option value="Bad">Bad, the course is boring.</option>
+        <option value="Okay">
+          Okay, overall found the course interesting.
+        </option>
+        <option value="Great">Great interesting course</option>
+        <option value="Excellent">Excellent course</option>
+      </select>
+      {% elif course.course_type=='Ds' %}
+      <select
+        style="width: 300px; text-align: center; border-radius: 15px"
+        id="value"
+        class="form-control"
+        name="value"
+        required
+      >
+        <option value="Worst">
+          Worst, could not relate anything in the course.
+        </option>
+        <option value="Bad">Bad, the course is boring.</option>
+        <option value="Okay">
+          Okay, overall found the course interesting.
+        </option>
+        <option value="Great">Great interesting course</option>
+        <option value="Excellent">Excellent course</option>
+      </select>
+      {% elif course.course_type=='Ml' %}
+      <select
+        style="width: 300px; text-align: center; border-radius: 15px"
+        id="value"
+        class="form-control"
+        name="value"
+        required
+      >
+        <option value="Worst">
+          Worst, could not relate anything in the course.
+        </option>
+        <option value="Bad">Bad, the course is boring.</option>
+        <option value="Okay">
+          Okay, overall found the course interesting.
+        </option>
+        <option value="Great">Great interesting course</option>
+        <option value="Excellent">Excellent course</option>
+      </select>
+      {% elif course.course_type=='Self' %}
+      <br />
+      {% if log.value=='True' %}
+      <select
+        style="width: 300px; text-align: center; border-radius: 15px"
+        id="value"
+        class="form-control"
+        name="value"
+        required
+      >
+        <option value="Worst">
+          Worst, could not relate anything in the course.
+        </option>
+        <option value="Bad">Bad, the course is boring.</option>
+        <option value="Okay">
+          Okay, overall found the course interesting.
+        </option>
+        <option value="Great">Great interesting course</option>
+        <option value="Excellent">Excellent course</option>
+      </select>
+      {% else %}
+      <select
+        style="width: 300px; text-align: center; border-radius: 15px"
+        id="value"
+        class="form-control"
+        name="value"
+        required
+      >
+        <option value="Worst">
+          Worst, could not relate anything in the course.
+        </option>
+        <option value="Bad">Bad, the course is boring.</option>
+        <option value="Okay">
+          Okay, overall found the course interesting.
+        </option>
+        <option value="Great">Great interesting course</option>
+        <option value="Excellent">Excellent course</option>
+      </select>
+      />
+      <label for="value">{{log.value}}</label><br />
+      {% endif %} {% endif %}
+
+      <label for="notes">Comment </label>
+      <textarea
+        class="form-control"
+        id="notes"
+        name="notes"
+        placeholder="Enter log notes"
+        maxlength="200"
+        style="width: 300px; border-radius: 15px; text-align: center"
+      >
+{{log.notes}}</textarea
+      >
+
+      <br />
+      <button
+        type="submit"
+        class="btn btn-light"
+        style="
+          border-radius: 12px;
+          background: -webkit-linear-gradient(top, #ffffff, #aab3ff);
+        "
+      >
+        <b>Update Comment</b>
+      </button>
+    </div>
+  </div>
+</form>
+
+{% endblock %}

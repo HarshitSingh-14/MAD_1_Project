@@ -1,0 +1,82 @@
+{% extends 'base.html' %} {% block title %}Edit Course{% endblock %} {% block
+content %}
+<h1
+  align="left"
+  class="card-header text-white"
+  style="background: -webkit-linear-gradient(bottom, #ffffff, #ffffff)"
+>
+  <span
+    class="typer"
+    id="main"
+    data-words="Hi ,  {{user.fullname }}____ Welcome to the world of Course"
+    data-delay="50"
+    data-deleteDelay="1"
+    style="font-size: 40px"
+  ></span>
+  <span class="cursor" data-owner="main"></span>
+</h1>
+
+<form method="post">
+  <h3 align="center"></h3>
+  <div class="form-group" style="background-color: #ffffff; width: 20rem">
+    <h2 style="padding-left: 30px">Edit Course</h2>
+
+    <div align="center">
+      <br />
+
+      <label for="name">Name of the Course</label>
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        name="name"
+        placeholder="Enter Course Name"
+        maxlength="30"
+        style="width: 300px; border-radius: 15px; text-align: center"
+        value="{{ course.name }}"
+      />
+      <label for="description">Description of the course</label>
+      <textarea
+        class="form-control"
+        id="description"
+        name="description"
+        placeholder="Enter Course description"
+        maxlength="200"
+        style="width: 300px; border-radius: 15px; text-align: center"
+      >
+{{ course.description }}</textarea
+      >
+
+      <label style="padding-top: 10px" for="type">Course Type</label>
+      <select
+        style="width: 300px; border-radius: 15px; text-align: center"
+        id="type"
+        class="form-control"
+        name="type"
+        required
+      >
+        <option value="{{ course.course_type }}">
+          {{ course.course_type }}
+        </option>
+        <option value="Databases">Databases course</option>
+        <option value="Ml">ML courses</option>
+        <option value="Ds">Data Science courses</option>
+        <option value="Self">Self-Improvement Courses</option>
+      </select>
+
+      <br />
+      <button
+        type="submit"
+        class="btn btn-light"
+        style="
+          border-radius: 100px;
+          background: -webkit-linear-gradient(top, #ffffff, #aab3ff);
+        "
+      >
+        <b>Update </b>
+      </button>
+    </div>
+  </div>
+</form>
+
+{% endblock %}

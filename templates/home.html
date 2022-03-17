@@ -1,0 +1,96 @@
+{% extends 'base.html' %} {% block title %}Dashboard{% endblock %} {% block
+content %}
+<h1
+  align="left"
+  class="card-header text-white"
+  style="background: -webkit-linear-gradient(bottom, #ffffff, #ffffff)"
+>
+  <span
+    class="typer"
+    id="main"
+    data-words="Hi ,  {{user.fullname }}____ Welcome to the world of Course"
+    data-delay="50"
+    data-deleteDelay="1"
+    style="font-size: 40px"
+  ></span>
+  <span class="cursor" data-owner="main"></span>
+</h1>
+
+<br />
+<div class="table table-hover" style="padding-top: 10px">
+  <table class="table table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">📖Course-Name 📚</th>
+        <th scope="col">Course Description</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for course in course %} {% if course.user_id==user.id %}
+      <tr>
+        {% set course_id=course.id %}
+        <td>
+          <a href="{{ url_for('views.view_course', record_id = course_id) }}"
+            >{{course.name}}</a
+          >
+        </td>
+        <td>{{course.description}}</td>
+        <td>
+          <a
+            href="{{ url_for('views.add_log', record_id = course_id) }}"
+            class="btn btn-light"
+            style="border-radius: 15px; font-size: 20px"
+            >✚</a
+          >
+        </td>
+        <td>
+          <div class="dropdown">
+            <button
+              class="btn btn-light dropdown-toggle"
+              type="button"
+              id="dropdownMenuButton"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+              style="
+                border-radius: 15px;
+                background: -webkit-linear-gradient(bottom, #ffffff, #aab3ff);
+              "
+            >
+              <b>Actions</b>
+            </button>
+
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a
+                class="dropdown-item"
+                href="{{ url_for('views.edit_course', record_id = course_id) }}"
+                >Edit Course</a
+              >
+              <a
+                class="dropdown-item"
+                href="{{ url_for('views.delete_course', record_id = course_id) }}"
+                >Remove Course</a
+              >
+            </div>
+          </div>
+        </td>
+      </tr>
+      {% endif %} {% endfor %}
+    </tbody>
+  </table>
+
+  <div align="center">
+    <a
+      href="/add-course-page"
+      class="btn btn-light"
+      style="
+        border-radius: 15px;
+        background: -webkit-linear-gradient(bottom, #ffffff, #aab3ff);
+      "
+      ><b>ADD Course🙂</b></a
+    >
+  </div>
+</div>
+{% endblock %}
