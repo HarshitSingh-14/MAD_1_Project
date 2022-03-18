@@ -3,6 +3,7 @@ Flask-SQLAlchemy==2.5.1
 Flask==2.0.1
 Flask-SQLAlchemy==2.5.1
 Flask-Security
+gunicorn==19
 email_validator
 bcrypt
 pytest
