@@ -33,7 +33,7 @@ def sign_up():
     if request.method == 'POST':
         email = request.form.get('email')
         fullname = request.form.get('name')
-        city = request.form.get('city')
+        age = request.form.get('age')
         password1 = request.form.get('password1')
         password2 = request.form.get('password2')
 
@@ -52,7 +52,7 @@ def sign_up():
         else:
 
             from . import db
-            new_user = User(fullname=fullname, email=email,  password=generate_password_hash(password1, method='sha256'), city=city)
+            new_user = User(fullname=fullname, email=email,  password=generate_password_hash(password1, method='sha256'), age=age)
             db.session.add(new_user)
             db.session.commit()
             flash('Successfully signed up.', category='success')

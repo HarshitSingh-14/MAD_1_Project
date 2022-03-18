@@ -24,7 +24,7 @@ def edit_profile_page():
         if request.method == 'POST':
             email = request.form.get('email')
             fullname = request.form.get('name')
-            city = request.form.get('city')
+            age = request.form.get('age')
             user_id = current_user.id
             current_user_email = current_user.email
 
@@ -44,7 +44,7 @@ def edit_profile_page():
 
                 edit_user.fullname = fullname
                 edit_user.email = email
-                edit_user.city = city
+                edit_user.age = age
 
                 db.session.commit()
                 flash('Profile update kar diya', category='success')
