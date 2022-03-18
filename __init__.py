@@ -14,7 +14,8 @@ def start_myApp():
     app = Flask(__name__)
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     app.config['SECRET_KEY'] = 'this is a secret key'
-    app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://qsjrkwcvohermr:39203386e31c617f0584da912f020e6691e542dae815a3cd14e75c42ac78e3c7@ec2-35-168-145-180.compute-1.amazonaws.com:5432/dbud169edkki14
+'
     db.init_app(app)
 
     app.register_blueprint(views, url_prefix='/')
