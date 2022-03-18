@@ -23,7 +23,7 @@ content %}
     <div align="center">
       <br />
 
-      <label for="date">Course start Date & Time: </label>
+      <label for="date">Study start/end Date & Time: </label>
       <input
         type="datetime-local"
         class="form-control"
@@ -44,16 +44,17 @@ content %}
         name="value"
         required
       >
-      
         <option value="Worst">
-          Worst, could not relate anything in the course.
+          Worst, could not relate anything in this timeslot.
         </option>
-        <option value="Bad">Bad, the course is boring.</option>
+        <option value="Bad">Bad, the timeslot is boring.</option>
         <option value="Okay">
-          Okay, overall found the course interesting.
+          Okay, overall found the timeslot interesting.
         </option>
-        <option value="Great">Great interesting course</option>
-        <option value="Excellent">Excellent course</option>
+        <option value="Great">Great interesting timeslot</option>
+        <option value="Excellent">
+          Excellent enjoyed studying in this timeslot
+        </option>
       </select>
       {% elif course.course_type=='Ds' %}
       <select
@@ -64,14 +65,16 @@ content %}
         required
       >
         <option value="Worst">
-          Worst, could not relate anything in the course.
+          Worst, could not relate anything in this timeslot.
         </option>
-        <option value="Bad">Bad, the course is boring.</option>
+        <option value="Bad">Bad, the timeslot is boring.</option>
         <option value="Okay">
-          Okay, overall found the course interesting.
+          Okay, overall found the timeslot interesting.
         </option>
-        <option value="Great">Great interesting course</option>
-        <option value="Excellent">Excellent course</option>
+        <option value="Great">Great interesting timeslot</option>
+        <option value="Excellent">
+          Excellent enjoyed studying in this timeslot
+        </option>
       </select>
       {% elif course.course_type=='Ml' %}
       <select
@@ -82,14 +85,16 @@ content %}
         required
       >
         <option value="Worst">
-          Worst, could not relate anything in the course.
+          Worst, could not relate anything in this timeslot.
         </option>
-        <option value="Bad">Bad, the course is boring.</option>
+        <option value="Bad">Bad, the timeslot is boring.</option>
         <option value="Okay">
-          Okay, overall found the course interesting.
+          Okay, overall found the timeslot interesting.
         </option>
-        <option value="Great">Great interesting course</option>
-        <option value="Excellent">Excellent course</option>
+        <option value="Great">Great interesting timeslot</option>
+        <option value="Excellent">
+          Excellent enjoyed studying in this timeslot
+        </option>
       </select>
 
       {% elif course.course_type=='Self' %}
@@ -101,19 +106,21 @@ content %}
         required
       >
         <option value="Worst">
-          Worst, could not relate anything in the course.
+          Worst, could not relate anything in this timeslot.
         </option>
-        <option value="Bad">Bad, the course is boring.</option>
+        <option value="Bad">Bad, the timeslot is boring.</option>
         <option value="Okay">
-          Okay, overall found the course interesting.
+          Okay, overall found the timeslot interesting.
         </option>
-        <option value="Great">Great interesting course</option>
-        <option value="Excellent">Excellent course</option>
+        <option value="Great">Great interesting timeslot</option>
+        <option value="Excellent">
+          Excellent enjoyed studying in this timeslot
+        </option>
       </select>
 
       {% endif %}
 
-      <label for="notes">Comment : </label>
+      <label for="notes">Comment (Start / End): </label>
       <textarea
         class="form-control"
         id="notes"

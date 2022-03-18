@@ -163,7 +163,7 @@ def add_log(record_id):
     return render_template("add_log_page.html", user=current_user, course=this_course, now=now)
 
 
-@views.route('/view-course-graph-logs/<int:record_id>', methods=['GET', 'POST'])
+@views.route('/view-course-logs/<int:record_id>', methods=['GET', 'POST'])
 @login_required
 def view_course(record_id):
     from .models import Course, Log
@@ -173,7 +173,7 @@ def view_course(record_id):
     logs = Log.query.all()
     try:
         import sqlite3
-        con = sqlite3.connect('E:\Quantified_Self_App\website\database.db')
+        con = sqlite3.connect('extraDb')
         print("Database opened successfully")
         c = con.cursor()
         c.execute('SELECT timestamp, value FROM Log WHERE user_id={} AND course_id={}'.format(current_user.id,

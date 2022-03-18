@@ -36,9 +36,9 @@ block content %}
     <table class="table">
       <thead class="thead">
         <tr>
-          <th scope="col">Course Start On</th>
+          <th scope="col">Course (start / end) time</th>
           <th scope="col">Rating</th>
-          <th scope="col">Comment</th>
+          <th scope="col">Comment(Start / End)</th>
           <th scope="col"></th>
         </tr>
       </thead>
@@ -64,19 +64,19 @@ block content %}
                   background: -webkit-linear-gradient(bottom, #ffffff, #aab3ff);
                 "
               >
-                <b>Actions</b>
+                <b>Edit/Remove</b>
               </button>
 
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <a
                   class="dropdown-item"
                   href="{{ url_for('views.edit_log', record_id = log_id) }}"
-                  >Edit Log</a
+                  >Edit Comment</a
                 >
                 <a
                   class="dropdown-item"
                   href="{{ url_for('views.delete_log', record_id = log_id) }}"
-                  >Remove Log</a
+                  >Remove Comment</a
                 >
               </div>
             </div>

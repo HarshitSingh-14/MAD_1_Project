@@ -1,4 +1,4 @@
-{% extends 'base.html' %} {% block title %}Edit Log{% endblock %} {% block
+{% extends 'base.html' %} {% block title %}Edit Comment{% endblock %} {% block
 content %}
 <h1
   align="left"
@@ -43,14 +43,16 @@ content %}
         required
       >
         <option value="Worst">
-          Worst, could not relate anything in the course.
+          Worst, could not relate anything in this timeslot.
         </option>
-        <option value="Bad">Bad, the course is boring.</option>
+        <option value="Bad">Bad, the timeslot is boring.</option>
         <option value="Okay">
-          Okay, overall found the course interesting.
+          Okay, overall found the timeslot interesting.
         </option>
-        <option value="Great">Great interesting course</option>
-        <option value="Excellent">Excellent course</option>
+        <option value="Great">Great interesting timeslot</option>
+        <option value="Excellent">
+          Excellent enjoyed studying in this timeslot
+        </option>
       </select>
       {% elif course.course_type=='Ds' %}
       <select
@@ -61,14 +63,16 @@ content %}
         required
       >
         <option value="Worst">
-          Worst, could not relate anything in the course.
+          Worst, could not relate anything in this timeslot.
         </option>
-        <option value="Bad">Bad, the course is boring.</option>
+        <option value="Bad">Bad, the timeslot is boring.</option>
         <option value="Okay">
-          Okay, overall found the course interesting.
+          Okay, overall found the timeslot interesting.
         </option>
-        <option value="Great">Great interesting course</option>
-        <option value="Excellent">Excellent course</option>
+        <option value="Great">Great interesting timeslot</option>
+        <option value="Excellent">
+          Excellent enjoyed studying in this timeslot
+        </option>
       </select>
       {% elif course.course_type=='Ml' %}
       <select
@@ -79,14 +83,16 @@ content %}
         required
       >
         <option value="Worst">
-          Worst, could not relate anything in the course.
+          Worst, could not relate anything in this timeslot.
         </option>
-        <option value="Bad">Bad, the course is boring.</option>
+        <option value="Bad">Bad, the timeslot is boring.</option>
         <option value="Okay">
-          Okay, overall found the course interesting.
+          Okay, overall found the timeslot interesting.
         </option>
-        <option value="Great">Great interesting course</option>
-        <option value="Excellent">Excellent course</option>
+        <option value="Great">Great interesting timeslot</option>
+        <option value="Excellent">
+          Excellent enjoyed studying in this timeslot
+        </option>
       </select>
       {% elif course.course_type=='Self' %}
       <br />
@@ -99,14 +105,16 @@ content %}
         required
       >
         <option value="Worst">
-          Worst, could not relate anything in the course.
+          Worst, could not relate anything in this timeslot.
         </option>
-        <option value="Bad">Bad, the course is boring.</option>
+        <option value="Bad">Bad, the timeslot is boring.</option>
         <option value="Okay">
-          Okay, overall found the course interesting.
+          Okay, overall found the timeslot interesting.
         </option>
-        <option value="Great">Great interesting course</option>
-        <option value="Excellent">Excellent course</option>
+        <option value="Great">Great interesting timeslot</option>
+        <option value="Excellent">
+          Excellent enjoyed studying in this timeslot
+        </option>
       </select>
       {% else %}
       <select
@@ -117,20 +125,22 @@ content %}
         required
       >
         <option value="Worst">
-          Worst, could not relate anything in the course.
+          Worst, could not relate anything in this timeslot.
         </option>
-        <option value="Bad">Bad, the course is boring.</option>
+        <option value="Bad">Bad, the timeslot is boring.</option>
         <option value="Okay">
-          Okay, overall found the course interesting.
+          Okay, overall found the timeslot interesting.
         </option>
-        <option value="Great">Great interesting course</option>
-        <option value="Excellent">Excellent course</option>
+        <option value="Great">Great interesting timeslot</option>
+        <option value="Excellent">
+          Excellent enjoyed studying in this timeslot
+        </option>
       </select>
       />
       <label for="value">{{log.value}}</label><br />
       {% endif %} {% endif %}
 
-      <label for="notes">Comment </label>
+      <label for="notes">Comment ( Start / End) </label>
       <textarea
         class="form-control"
         id="notes"
