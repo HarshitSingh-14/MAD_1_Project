@@ -4,6 +4,7 @@ Flask==2.0.1
 Flask-SQLAlchemy==2.5.1
 Flask-Security
 gunicorn
+virtualenv
 email_validator
 bcrypt
 pytest
